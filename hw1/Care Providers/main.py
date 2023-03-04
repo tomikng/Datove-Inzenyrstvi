@@ -25,11 +25,11 @@ def process_data(data):
 
 
 def main():
-    file_path = "./narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv"
+    file_path = "Care Providers/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv"
     data = load_csv_file_as_object_and_aggregate(file_path)
     data = process_data(data)
     # pprint.pprint(data)
-    print(data)
+    # print(data)
     rdf = as_rdf(data)
     print_rdf_as_trig(rdf)
 
@@ -88,7 +88,8 @@ def as_rdf(content):
     # Triplets
     # Dataset
     result.add((ex_ns['dataCubeInstance'], RDF.type, qb_ns['DataSet']))
-    result.add((ex_ns['dataCubeInstance'], skos_ns['prefLlabel'], Literal("Pokytovatelé zdravotních služeb", lang='cs')))
+    result.add(
+        (ex_ns['dataCubeInstance'], skos_ns['prefLabel'], Literal("Pokytovatelé zdravotních služeb", lang='cs')))
     result.add((ex_ns['dataCubeInstance'], qb_ns['structure'], ex_ns['structure']))
     result.add((ex_ns['dataCubeInstance'], dct_ns['issued'], Literal("2023-03-01", datatype=XSD.date)))
     result.add((ex_ns['dataCubeInstance'], dct_ns['modified'], Literal("2023-03-01", datatype=XSD.date)))
@@ -122,10 +123,11 @@ def as_rdf(content):
     result.add((sdmx_concept_ns.OborPece, RDF.type, skos_ns.Concept))
     result.add((sdmx_concept_ns.OborPece, RDFS.label, Literal("OborPece", lang='cs')))
     result.add((sdmx_concept_ns.OborPece, skos_ns.prefLabel, Literal("OborPece", lang='cs')))
-    result.add((sdmx_concept_ns.OborPece, RDFS.comment, Literal("Typ poskytované péče, jako například lékařská, dentální nebo duševní zdraví.", lang='cs')))
+    result.add((sdmx_concept_ns.OborPece, RDFS.comment,
+                Literal("Typ poskytované péče, jako například lékařská, dentální nebo duševní zdraví.", lang='cs')))
 
-    result.add((sdmx_concept_ns.Pocet, RDF.type ,sdmx_ns.Concept))
-    result.add((sdmx_concept_ns.Pocet, RDF.type ,skos_ns.Concept))
+    result.add((sdmx_concept_ns.Pocet, RDF.type, sdmx_ns.Concept))
+    result.add((sdmx_concept_ns.Pocet, RDF.type, skos_ns.Concept))
     result.add((sdmx_concept_ns.Pocet, RDFS.label, Literal("Pocet", lang='cs')))
     result.add((sdmx_concept_ns.Pocet, skos_ns.prefLabel, Literal("Pocet", lang='cs')))
     result.add((sdmx_concept_ns.Pocet, RDFS.comment, Literal("Pocet nejakeho mnozstvi", lang='cs')))
@@ -137,7 +139,7 @@ def as_rdf(content):
     result.add((sdmx_dimension_ns.Okres, qb_ns.concept, sdmx_concept_ns.Okres))
     result.add((sdmx_dimension_ns.Okres, RDFS.label, Literal("Okres", lang="cs")))
     result.add((sdmx_dimension_ns.Okres, skos_ns.prefLabel, Literal("Okres", lang="cs")))
-    result.add((sdmx_dimension_ns.Okres, RDFS.comment , Literal("Konkrétní administrativní členění", lang="cs")))
+    result.add((sdmx_dimension_ns.Okres, RDFS.comment, Literal("Konkrétní administrativní členění", lang="cs")))
 
     result.add((sdmx_dimension_ns.Kraj, RDF.type, qb_ns.DimensionProperty))
     result.add((sdmx_dimension_ns.Kraj, RDF.type, RDF.Property))
@@ -145,7 +147,8 @@ def as_rdf(content):
     result.add((sdmx_dimension_ns.Kraj, qb_ns.concept, sdmx_concept_ns.Kraj))
     result.add((sdmx_dimension_ns.Kraj, RDFS.label, Literal("Kraj", lang="cs")))
     result.add((sdmx_dimension_ns.Kraj, skos_ns.prefLabel, Literal("Kraj", lang="cs")))
-    result.add((sdmx_dimension_ns.Kraj, RDFS.comment, Literal("ozsáhlejší geografická oblast nebo skupina okresů", lang="cs")))
+    result.add(
+        (sdmx_dimension_ns.Kraj, RDFS.comment, Literal("ozsáhlejší geografická oblast nebo skupina okresů", lang="cs")))
 
     result.add((sdmx_dimension_ns.OborPece, RDF.type, qb_ns.DimensionProperty))
     result.add((sdmx_dimension_ns.OborPece, RDF.type, RDF.Property))
@@ -153,7 +156,8 @@ def as_rdf(content):
     result.add((sdmx_dimension_ns.OborPece, qb_ns.concept, sdmx_concept_ns.OborPece))
     result.add((sdmx_dimension_ns.OborPece, RDFS.label, Literal("OborPece", lang="cs")))
     result.add((sdmx_dimension_ns.OborPece, skos_ns.prefLabel, Literal("OborPece", lang="cs")))
-    result.add((sdmx_dimension_ns.OborPece, RDFS.comment, Literal("Typ poskytované péče, jako například lékařská, dentální nebo duševní zdraví.", lang="cs")))
+    result.add((sdmx_dimension_ns.OborPece, RDFS.comment,
+                Literal("Typ poskytované péče, jako například lékařská, dentální nebo duševní zdraví.", lang="cs")))
 
     # sdmx-measure
     result.add((sdmx_measure_ns.PocetPoskytovatelu, RDF.type, qb_ns.MeasureProperty))
@@ -161,8 +165,9 @@ def as_rdf(content):
     result.add((sdmx_measure_ns.PocetPoskytovatelu, qb_ns.Concept, sdmx_concept_ns.Pocet))
     result.add((sdmx_measure_ns.PocetPoskytovatelu, RDFS.label, Literal("Pocet poskytovatelu", lang="cs")))
     result.add((sdmx_measure_ns.PocetPoskytovatelu, skos_ns.prefLabel, Literal("Pocet poskytovatelu", lang="cs")))
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, RDFS.comment, Literal("Skutečný počet osob poskytující péči v určitém okrese, regionu a/nebo oblasti péče po určité časové období.", lang="cs")))
-
+    result.add((sdmx_measure_ns.PocetPoskytovatelu, RDFS.comment, Literal(
+        "Skutečný počet osob poskytující péči v určitém okrese, regionu a/nebo oblasti péče po určité časové období.",
+        lang="cs")))
 
     # Dimensions
     result.add((ex_ns.Okres, RDF.type, RDF.Property))
@@ -199,7 +204,6 @@ def as_rdf(content):
 
     counter = 0
     for record in content:
-
         resource = URIRef(f"{ex_ns}observation-{counter:03}")
         result.add((resource, RDF.type, qb_ns.Observation))
         result.add((resource, qb_ns.DataSet, qb_ns.dataCubeInstance))
@@ -210,7 +214,6 @@ def as_rdf(content):
         counter = counter + 1
 
     return result
-
 
 
 def print_rdf_as_trig(graph: Graph):
