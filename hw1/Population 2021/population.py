@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import os
+
 import pandas as pd
 
 from rdflib import Graph, URIRef, BNode, Literal, Namespace, RDF, XSD, RDFS
@@ -24,11 +26,12 @@ def parse_data(df: pd.DataFrame):
     district = ''
 
     for i, row in df_r.iterrows():
-        if pd.notna(row[0]) and not pd.notna(row[1]):  # if the first column is not empty, it is name of the district
+        if pd.notna(row[0]) and not pd.notna(row[1]):  # if the first column is not empty but others are, it is name of the district
             district = row[0]
             continue
         else:
             codes.append(row[0])
+
             regions.append(row[1])
             populations.append(row[2])
             mean_ages.append(row[5])
@@ -103,14 +106,14 @@ def as_rdf(content):
 
     # Triplets
     # Dataset
-    result.add((ex_ns['dataCubeInstance'], RDF.type, qb_ns['DataSet']))
+    result.add((ex_ns['dataset-population'], RDF.type, qb_ns['DataSet']))
     result.add(
-        (ex_ns['dataCubeInstance'], skos_ns['prefLabel'], Literal("Průměrný věk obyvatelstva České republiky v roce 2021", lang='cs')))
-    result.add((ex_ns['dataCubeInstance'], qb_ns['structure'], ex_ns['structure']))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['issued'], Literal("2021-01-01", datatype=XSD.date)))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['modified'], Literal("2021-01-01", datatype=XSD.date)))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['publisher'], URIRef("https://www.czso.cz/csu/czso/")))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['license'],
+        (ex_ns['dataset-population'], skos_ns['prefLabel'], Literal("Průměrný věk obyvatelstva České republiky v roce 2021", lang='cs')))
+    result.add((ex_ns['dataset-population'], qb_ns['structure'], ex_ns['structure']))
+    result.add((ex_ns['dataset-population'], dct_ns['issued'], Literal("2021-01-01", datatype=XSD.date)))
+    result.add((ex_ns['dataset-population'], dct_ns['modified'], Literal("2021-01-01", datatype=XSD.date)))
+    result.add((ex_ns['dataset-population'], dct_ns['publisher'], URIRef("https://www.czso.cz/csu/czso/")))
+    result.add((ex_ns['dataset-population'], dct_ns['license'],
                 URIRef("https://data.gov.cz/podm%C3%ADnky-u%C5%BEit%C3%AD/voln%C3%BD-p%C5%99%C3%ADstup/")))
 
     # Data Structure Definitions
@@ -198,7 +201,7 @@ def as_rdf(content):
     for record in content:
         resource = URIRef(f"{ex_ns}observation-{counter:03}")
         result.add((resource, RDF.type, qb_ns.Observation))
-        result.add((resource, qb_ns.DataSet, qb_ns.dataCubeInstance))
+        result.add((resource, qb_ns.dataSet, qb_ns["dataset-population"]))
         result.add((resource, ex_ns.Okres, Literal(record["Region"])))
         result.add((resource, ex_ns.Kraj, Literal(record["District"])))
         result.add((resource, ex_ns.PrumernyVek, Literal(record["MeanAge"])))
@@ -208,7 +211,11 @@ def as_rdf(content):
 
 
 def print_rdf_as_trig(graph: Graph):
-    print(graph.serialize(format="trig"))
+    if not os.path.exists("out"):
+        os.makedirs("out")
+    with open("out/population.ttl", "w", encoding="utf-8") as f:
+        f.write(graph.serialize(format="turtle"))
+        print("Success, the file is in out/population.ttl")
 
 
 if __name__ == "__main__":

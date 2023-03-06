@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import csv
+import os
 import pprint
 
 import pandas as pd
@@ -87,14 +88,14 @@ def as_rdf(content):
 
     # Triplets
     # Dataset
-    result.add((ex_ns['dataCubeInstance'], RDF.type, qb_ns['DataSet']))
+    result.add((ex_ns['dataset-cp'], RDF.type, qb_ns['DataSet']))
     result.add(
-        (ex_ns['dataCubeInstance'], skos_ns['prefLabel'], Literal("Pokytovatelé zdravotních služeb", lang='cs')))
-    result.add((ex_ns['dataCubeInstance'], qb_ns['structure'], ex_ns['structure']))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['issued'], Literal("2023-03-01", datatype=XSD.date)))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['modified'], Literal("2023-03-01", datatype=XSD.date)))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['publisher'], URIRef("https://nrpzs.uzis.cz/")))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['license'], URIRef("https://data.gov.cz/podm%C3%ADnky-u%C5%BEit%C3%AD/voln%C3%BD-p%C5%99%C3%ADstup/")))
+        (ex_ns['dataset-cp'], skos_ns['prefLabel'], Literal("Pokytovatelé zdravotních služeb", lang='cs')))
+    result.add((ex_ns['dataset-cp'], qb_ns['structure'], ex_ns['structure']))
+    result.add((ex_ns['dataset-cp'], dct_ns['issued'], Literal("2023-03-01", datatype=XSD.date)))
+    result.add((ex_ns['dataset-cp'], dct_ns['modified'], Literal("2023-03-01", datatype=XSD.date)))
+    result.add((ex_ns['dataset-cp'], dct_ns['publisher'], URIRef("https://nrpzs.uzis.cz/")))
+    result.add((ex_ns['dataset-cp'], dct_ns['license'], URIRef("https://data.gov.cz/podm%C3%ADnky-u%C5%BEit%C3%AD/voln%C3%BD-p%C5%99%C3%ADstup/")))
 
     # Data Structure Definitions
     structure = BNode()
@@ -206,7 +207,7 @@ def as_rdf(content):
     for record in content:
         resource = URIRef(f"{ex_ns}observation-{counter:03}")
         result.add((resource, RDF.type, qb_ns.Observation))
-        result.add((resource, qb_ns.DataSet, qb_ns.dataCubeInstance))
+        result.add((resource, qb_ns.dataSet, qb_ns["dataset-cp"]))
         result.add((resource, ex_ns.Okres, Literal(record["Okres"])))
         result.add((resource, ex_ns.Kraj, Literal(record["Kraj"])))
         result.add((resource, ex_ns.OborPece, Literal(record["OborPece"])))
@@ -217,7 +218,11 @@ def as_rdf(content):
 
 
 def print_rdf_as_trig(graph: Graph):
-    print(graph.serialize(format="trig"))
+    if not os.path.exists("out"):
+        os.makedirs("out")
+    with open("out/care_providers.ttl", "w", encoding="utf-8") as f:
+        f.write(graph.serialize(format="turtle"))
+        print("Success, the file is in out/care_providers.ttl")
 
 
 if __name__ == "__main__":
