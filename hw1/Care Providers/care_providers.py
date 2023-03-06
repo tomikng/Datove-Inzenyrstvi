@@ -94,7 +94,7 @@ def as_rdf(content):
     result.add((ex_ns['dataCubeInstance'], dct_ns['issued'], Literal("2023-03-01", datatype=XSD.date)))
     result.add((ex_ns['dataCubeInstance'], dct_ns['modified'], Literal("2023-03-01", datatype=XSD.date)))
     result.add((ex_ns['dataCubeInstance'], dct_ns['publisher'], URIRef("https://nrpzs.uzis.cz/")))
-    result.add((ex_ns['dataCubeInstance'], dct_ns['license'], URIRef("https://creativecommons.org/licenses/by/4.0/")))
+    result.add((ex_ns['dataCubeInstance'], dct_ns['license'], URIRef("https://data.gov.cz/podm%C3%ADnky-u%C5%BEit%C3%AD/voln%C3%BD-p%C5%99%C3%ADstup/")))
 
     # Data Structure Definitions
     structure = BNode()
@@ -199,7 +199,7 @@ def as_rdf(content):
     result.add((ex_ns.PocetPoskytovatelu, RDFS.label, Literal("PocetPoskytovatelu", lang="cs")))
     result.add((ex_ns.PocetPoskytovatelu, skos_ns.prefLabel, Literal("PocetPoskytovatelu", lang="cs")))
     result.add((ex_ns.PocetPoskytovatelu, RDFS.subPropertyOf, sdmx_measure_ns.PocetPoskytovatelu))
-    result.add((ex_ns.PocetPoskytovatelu, qb_ns.Concept, sdmx_concept_ns.PocetPoskytovatelu))
+    result.add((ex_ns.PocetPoskytovatelu, qb_ns.Concept, sdmx_concept_ns.Pocet))
     result.add((ex_ns.PocetPoskytovatelu, RDFS.range, RDFS.Resource))
 
     counter = 0
