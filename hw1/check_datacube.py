@@ -1,26 +1,25 @@
 import os
-import sys
-
+import argparse
 from rdflib import Graph
 from rdflib.plugins.sparql import prepareQuery
 
-# Define path to data cube file
-data_cube_file = sys.argv[1]
-
-# Define path to directory containing constraint queries
-constraint_directory = "constraints/"
+# Create the argument parser
+parser = argparse.ArgumentParser(description="Validate a data cube against a set of constraints.")
+parser.add_argument("data_cube_file", help="path to the data cube file in Turtle format")
+parser.add_argument("--constraint-directory", "-c", default="constraints/", help="path to the directory containing constraint queries")
+args = parser.parse_args()
 
 # Load data cube file into graph
 g = Graph()
-g.parse(data_cube_file, format="turtle")
+g.parse(args.data_cube_file, format="turtle")
 
 not_ok = 0
 ok = 0
 failed = []
 
 # Validate data cube against each constraint query in the directory
-for constraint_file in os.listdir(constraint_directory):
-    constraint_path = os.path.join(constraint_directory, constraint_file)
+for constraint_file in os.listdir(args.constraint_directory):
+    constraint_path = os.path.join(args.constraint_directory, constraint_file)
     with open(constraint_path) as f:
         constraint_query = prepareQuery(f.read())
 

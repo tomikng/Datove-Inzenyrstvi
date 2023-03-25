@@ -49,12 +49,24 @@ pip install -r requirements.txt
 ## Care Providers
 Adresář obsahuje dataset a skript `care_providers.py`. Výstup se ukládá do `out/care_providers.ttl`
 
+Skript se spouští následujícím způsobem
+```commandline
+python care_providers.py --input-file narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv
+```
+
 ## Population 2021
 Adresář obsahuje dataset a skript `population.py`. Výstup se ukládá do `out/population.ttl`
+
+Skript se spouští následujícím způsobem
+```commandline
+python population.py --input-file populace-okresy-2021.xlsx
+```
 
 ## Check datacube
 Skript kontroluje integritní omezení jednotlivých data cubes. Za argument dostavá cestu k datacube, který ověrí
 Příklad spuštění skriptu
 ```commandline
-python3 check_datacube.py "path/to/datacube"
+python check_datacube.py data_cube.ttl --constraint-directory constraints/
 ```
+
+kde `--constraint-directory` má defaultně nastaveno directory `constraint`

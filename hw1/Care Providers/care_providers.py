@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import csv
 import os
 import pprint
@@ -26,7 +27,19 @@ def process_data(data):
 
 
 def main():
-    file_path = "Care Providers/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv"
+    parser = argparse.ArgumentParser(description="Process data and convert it to RDF.")
+    parser.add_argument("--input-file", "-i",
+                        help="path to the input file")
+    args = parser.parse_args()
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_file_path = os.path.join(script_dir, args.input_file) if args.input_file else None
+
+    # Check if the input file path is valid
+    if not input_file_path or not os.path.isfile(input_file_path):
+        raise FileNotFoundError("Please provide a valid path to the input file using the --input-file option.")
+
+    file_path = input_file_path
     data = load_csv_file_as_object_and_aggregate(file_path)
     data = process_data(data)
     # pprint.pprint(data)
