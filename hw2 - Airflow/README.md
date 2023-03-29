@@ -16,7 +16,7 @@ cd airflow
 ```
 Poté spustíme docker
 ```commandline
-docker build . --tag extending_airflow:lastest
+docker build . --tag extending_airflow:latest
 ```
 Spustíme web server a scheduler pomocí `docker-compose`
 ```commandline
