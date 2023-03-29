@@ -6,227 +6,32 @@ import pprint
 
 import pandas as pd
 
-from rdflib import Graph, URIRef, BNode, Literal, Namespace, RDF, XSD, RDFS
+from rdflib import Graph, URIRef, BNode, Literal, Namespace, RDF, XSD, SKOS, OWL, QB, DCTERMS
+
+NS = Namespace("https://example.com/")
+NSR = Namespace("https://example.com/resources/")
+RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+SDMX_CONCEPT = Namespace("http://purl.org/linked-data/sdmx/2009/concept#")
+SDMX_MEASURE = Namespace("http://purl.org/linked-data/sdmx/2009/measure#")
+SDMX_CODE = Namespace("http://purl.org/linked-data/sdmx/2009/code#")
 
 
-def process_data(data):
-    # Create a pandas dataframe from the data dictionary
-    df = pd.DataFrame.from_dict(data)
-
-    # Group by Okres and aggregate the data by count of ICO and first value of Kraj and Obor Pece columns
-    df_grouped = df.groupby('Okres').agg({'Ico': 'count', 'Kraj': 'first', 'OborPece': 'first', "Okres": "first"})
-
-    # Rename the columns for better readability
-    df_grouped = df_grouped.rename(columns={'Ico': 'PocetPoskytovateluPece'})
-    #
-    # pd.set_option('display.max_rows', None)
-    # pd.set_option('display.max_columns', None)
-    #
-    # print(df_grouped)
-    return df_grouped.to_dict(orient='records')
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Process data and convert it to RDF.")
-    parser.add_argument("--input-file", "-i",
-                        help="path to the input file")
-    args = parser.parse_args()
-
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_file_path = os.path.join(script_dir, args.input_file) if args.input_file else None
-
-    # Check if the input file path is valid
-    if not input_file_path or not os.path.isfile(input_file_path):
-        raise FileNotFoundError("Please provide a valid path to the input file using the --input-file option.")
-
-    file_path = input_file_path
-    data = load_csv_file_as_object_and_aggregate(file_path)
-    data = process_data(data)
-    # pprint.pprint(data)
-    # print(data)
-    rdf = as_rdf(data)
-    print_rdf_as_trig(rdf)
-
-
-def load_csv_file_as_object_and_aggregate(file_path: str):
-    # define the columns we want to extract
-    columns = ['Okres', 'Kraj', 'OborPece', 'Ico']
-
-    # initialize an empty list to store the extracted data
-    data = []
-
-    # read in the data from the file
-    with open(file_path, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
-        for row in reader:
-            # extract the desired columns from the row as a dictionary
-            extracted_row = {col: row[col] for col in columns}
-            # add the extracted row to the data list
-            data.append(extracted_row)
-
-    return data
+def load_csv_file_as_object(file_path: str):
+    result = pd.read_csv(file_path, low_memory=False)
+    return result
 
 
 def as_rdf(content):
-    result = Graph()
-    ns_manager = result.namespace_manager
+    result = Graph(bind_namespaces="rdflib")
 
-    # Define a new namespaces
-    ex_ns = Namespace("http://example.com/")
-    ns_manager.bind("ex", ex_ns)
-
-    qb_ns = Namespace("http://purl.org/linked-data/cube#")
-    ns_manager.bind("qb", qb_ns)
-
-    skos_ns = Namespace("http://www.w3.org/2004/02/skos/core#")
-    ns_manager.bind("skos", skos_ns)
-
-    dct_ns = Namespace("http://purl.org/dc/terms/")
-    ns_manager.bind("dct", dct_ns)
-
-    xsd_ns = Namespace("http://www.w3.org/2001/XMLSchema#")
-    ns_manager.bind("xsd", xsd_ns)
-
-    sdmx_ns = Namespace("http://purl.org/linked-data/sdmx#")
-    ns_manager.bind("sdmx", sdmx_ns)
-
-    sdmx_concept_ns = Namespace("http://purl.org/linked-data/sdmx/2009/concept#")
-    ns_manager.bind("sdmx_concept", sdmx_concept_ns)
-
-    sdmx_dimension_ns = Namespace("http://purl.org/linked-data/sdmx/2009/dimension#")
-    ns_manager.bind("sdmx-dimension", sdmx_dimension_ns)
-
-    sdmx_measure_ns = Namespace("http://purl.org/linked-data/sdmx/2009/measure#")
-    ns_manager.bind("sdmx-measure", sdmx_measure_ns)
-
-    # Triplets
-    # Dataset
-    result.add((ex_ns['dataset-cp'], RDF.type, qb_ns['DataSet']))
-    result.add(
-        (ex_ns['dataset-cp'], skos_ns['prefLabel'], Literal("Pokytovatelé zdravotních služeb", lang='cs')))
-    result.add((ex_ns['dataset-cp'], qb_ns['structure'], ex_ns['structure']))
-    result.add((ex_ns['dataset-cp'], dct_ns['issued'], Literal("2023-03-01", datatype=XSD.date)))
-    result.add((ex_ns['dataset-cp'], dct_ns['modified'], Literal("2023-03-01", datatype=XSD.date)))
-    result.add((ex_ns['dataset-cp'], dct_ns['publisher'], URIRef("https://nrpzs.uzis.cz/")))
-    result.add((ex_ns['dataset-cp'], dct_ns['license'], URIRef("https://data.gov.cz/podm%C3%ADnky-u%C5%BEit%C3%AD/voln%C3%BD-p%C5%99%C3%ADstup/")))
-
-    # Data Structure Definitions
-    structure = BNode()
-    result.add((ex_ns['structure'], RDF.type, qb_ns['MeasureProperty']))
-    result.add((ex_ns['structure'], qb_ns['component'], structure))
-    result.add((structure, qb_ns['dimension'], ex_ns['Okres']))
-    result.add((structure, qb_ns['dimension'], ex_ns['Kraj']))
-    result.add((structure, qb_ns['dimension'], ex_ns['OborPece']))
-    result.add((structure, qb_ns['measure'], ex_ns['PocetPoskytovatelu']))
-
-    # sdmx
-    # Concept
-    result.add((sdmx_concept_ns.Okres, RDF.type, sdmx_ns.Concept))
-    result.add((sdmx_concept_ns.Okres, RDF.type, skos_ns.Concept))
-    result.add((sdmx_concept_ns.Okres, RDFS.label, Literal("Okres", lang='cs')))
-    result.add((sdmx_concept_ns.Okres, skos_ns.prefLabel, Literal("Okres", lang='cs')))
-    result.add((sdmx_concept_ns.Okres, RDFS.comment, Literal("Administrativní členění země nebo regionu.", lang='cs')))
-
-    result.add((sdmx_concept_ns.Kraj, RDF.type, sdmx_ns.Concept))
-    result.add((sdmx_concept_ns.Kraj, RDF.type, skos_ns.Concept))
-    result.add((sdmx_concept_ns.Kraj, RDFS.label, Literal("Kraj", lang='cs')))
-    result.add((sdmx_concept_ns.Kraj, skos_ns.prefLabel, Literal("Kraj", lang='cs')))
-    result.add((sdmx_concept_ns.Kraj, RDFS.comment, Literal("Geografická oblast nebo skupina okresů.", lang='cs')))
-
-    result.add((sdmx_concept_ns.OborPece, RDF.type, sdmx_ns.Concept))
-    result.add((sdmx_concept_ns.OborPece, RDF.type, skos_ns.Concept))
-    result.add((sdmx_concept_ns.OborPece, RDFS.label, Literal("OborPece", lang='cs')))
-    result.add((sdmx_concept_ns.OborPece, skos_ns.prefLabel, Literal("OborPece", lang='cs')))
-    result.add((sdmx_concept_ns.OborPece, RDFS.comment,
-                Literal("Typ poskytované péče, jako například lékařská, dentální nebo duševní zdraví.", lang='cs')))
-
-    result.add((sdmx_concept_ns.Pocet, RDF.type, sdmx_ns.Concept))
-    result.add((sdmx_concept_ns.Pocet, RDF.type, skos_ns.Concept))
-    result.add((sdmx_concept_ns.Pocet, RDFS.label, Literal("Pocet", lang='cs')))
-    result.add((sdmx_concept_ns.Pocet, skos_ns.prefLabel, Literal("Pocet", lang='cs')))
-    result.add((sdmx_concept_ns.Pocet, RDFS.comment, Literal("Pocet nejakeho mnozstvi", lang='cs')))
-
-    # sdmx-dimenze
-    result.add((sdmx_dimension_ns.Okres, RDF.type, qb_ns.DimensionProperty))
-    result.add((sdmx_dimension_ns.Okres, RDF.type, RDF.Property))
-    result.add((sdmx_dimension_ns.Okres, RDFS.range, RDFS.Resource))
-    result.add((sdmx_dimension_ns.Okres, qb_ns.concept, sdmx_concept_ns.Okres))
-    result.add((sdmx_dimension_ns.Okres, RDFS.label, Literal("Okres", lang="cs")))
-    result.add((sdmx_dimension_ns.Okres, skos_ns.prefLabel, Literal("Okres", lang="cs")))
-    result.add((sdmx_dimension_ns.Okres, RDFS.comment, Literal("Konkrétní administrativní členění", lang="cs")))
-
-    result.add((sdmx_dimension_ns.Kraj, RDF.type, qb_ns.DimensionProperty))
-    result.add((sdmx_dimension_ns.Kraj, RDF.type, RDF.Property))
-    result.add((sdmx_dimension_ns.Kraj, RDFS.range, RDFS.Resource))
-    result.add((sdmx_dimension_ns.Kraj, qb_ns.concept, sdmx_concept_ns.Kraj))
-    result.add((sdmx_dimension_ns.Kraj, RDFS.label, Literal("Kraj", lang="cs")))
-    result.add((sdmx_dimension_ns.Kraj, skos_ns.prefLabel, Literal("Kraj", lang="cs")))
-    result.add(
-        (sdmx_dimension_ns.Kraj, RDFS.comment, Literal("ozsáhlejší geografická oblast nebo skupina okresů", lang="cs")))
-
-    result.add((sdmx_dimension_ns.OborPece, RDF.type, qb_ns.DimensionProperty))
-    result.add((sdmx_dimension_ns.OborPece, RDF.type, RDF.Property))
-    result.add((sdmx_dimension_ns.OborPece, RDFS.range, RDFS.Resource))
-    result.add((sdmx_dimension_ns.OborPece, qb_ns.concept, sdmx_concept_ns.OborPece))
-    result.add((sdmx_dimension_ns.OborPece, RDFS.label, Literal("OborPece", lang="cs")))
-    result.add((sdmx_dimension_ns.OborPece, skos_ns.prefLabel, Literal("OborPece", lang="cs")))
-    result.add((sdmx_dimension_ns.OborPece, RDFS.comment,
-                Literal("Typ poskytované péče, jako například lékařská, dentální nebo duševní zdraví.", lang="cs")))
-
-    # sdmx-measure
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, RDF.type, qb_ns.MeasureProperty))
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, RDF.type, RDF.Property))
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, qb_ns.Concept, sdmx_concept_ns.Pocet))
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, RDFS.label, Literal("Pocet poskytovatelu", lang="cs")))
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, skos_ns.prefLabel, Literal("Pocet poskytovatelu", lang="cs")))
-    result.add((sdmx_measure_ns.PocetPoskytovatelu, RDFS.comment, Literal(
-        "Skutečný počet osob poskytující péči v určitém okrese, regionu a/nebo oblasti péče po určité časové období.",
-        lang="cs")))
-
-    # Dimensions
-    result.add((ex_ns.Okres, RDF.type, RDF.Property))
-    result.add((ex_ns.Okres, RDF.type, qb_ns.DimensionProperty))
-    result.add((ex_ns.Okres, RDFS.label, Literal("Okres", lang="cs")))
-    result.add((ex_ns.Okres, skos_ns.prefLabel, Literal("Okres", lang="cs")))
-    result.add((ex_ns.Okres, RDFS.subPropertyOf, sdmx_dimension_ns.Okres))
-    result.add((ex_ns.Okres, qb_ns.Concept, sdmx_concept_ns.Okres))
-    result.add((ex_ns.Okres, RDFS.range, RDFS.Resource))
-
-    result.add((ex_ns.Kraj, RDF.type, RDF.Property))
-    result.add((ex_ns.Kraj, RDF.type, qb_ns.DimensionProperty))
-    result.add((ex_ns.Kraj, RDFS.label, Literal("Okres", lang="cs")))
-    result.add((ex_ns.Kraj, skos_ns.prefLabel, Literal("Okres", lang="cs")))
-    result.add((ex_ns.Kraj, RDFS.subPropertyOf, sdmx_dimension_ns.Kraj))
-    result.add((ex_ns.Kraj, qb_ns.Concept, sdmx_concept_ns.Kraj))
-    result.add((ex_ns.Kraj, RDFS.range, RDFS.Resource))
-
-    result.add((ex_ns.OborPece, RDF.type, RDF.Property))
-    result.add((ex_ns.OborPece, RDF.type, qb_ns.DimensionProperty))
-    result.add((ex_ns.OborPece, RDFS.label, Literal("OborPece", lang="cs")))
-    result.add((ex_ns.OborPece, skos_ns.prefLabel, Literal("OborPece", lang="cs")))
-    result.add((ex_ns.OborPece, RDFS.subPropertyOf, sdmx_dimension_ns.OborPece))
-    result.add((ex_ns.OborPece, qb_ns.Concept, sdmx_concept_ns.OborPece))
-    result.add((ex_ns.OborPece, RDFS.range, RDFS.Resource))
-
-    result.add((ex_ns.PocetPoskytovatelu, RDF.type, RDF.Property))
-    result.add((ex_ns.PocetPoskytovatelu, RDF.type, qb_ns.DimensionProperty))
-    result.add((ex_ns.PocetPoskytovatelu, RDFS.label, Literal("PocetPoskytovatelu", lang="cs")))
-    result.add((ex_ns.PocetPoskytovatelu, skos_ns.prefLabel, Literal("PocetPoskytovatelu", lang="cs")))
-    result.add((ex_ns.PocetPoskytovatelu, RDFS.subPropertyOf, sdmx_measure_ns.PocetPoskytovatelu))
-    result.add((ex_ns.PocetPoskytovatelu, qb_ns.Concept, sdmx_concept_ns.Pocet))
-    result.add((ex_ns.PocetPoskytovatelu, RDFS.range, RDFS.Resource))
-
-    counter = 0
-    for record in content:
-        resource = URIRef(f"{ex_ns}observation-{counter:03}")
-        result.add((resource, RDF.type, qb_ns.Observation))
-        result.add((resource, qb_ns.dataSet, qb_ns["dataset-cp"]))
-        result.add((resource, ex_ns.Okres, Literal(record["Okres"])))
-        result.add((resource, ex_ns.Kraj, Literal(record["Kraj"])))
-        result.add((resource, ex_ns.OborPece, Literal(record["OborPece"])))
-        result.add((resource, ex_ns.PocetPoskytovatelu, Literal(record["PocetPoskytovateluPece"])))
-        counter = counter + 1
-
+    concept_schema(result)
+    resource_classes(result)
+    resources(result, content)
+    dimension = dimensions(result)
+    measures = measure(result)
+    structures = structure(result, dimension, measures)
+    datasets = dataset(result, structures)
+    observations(result, datasets, content)
     return result
 
 
@@ -236,6 +41,165 @@ def print_rdf_as_trig(graph: Graph):
     with open("out/care_providers.ttl", "w", encoding="utf-8") as f:
         f.write(graph.serialize(format="turtle"))
         print("Success, the file is in out/care_providers.ttl")
+
+
+def concept_schema(graph: Graph):
+    concepts = {
+        NSR.region: "Kraj",
+        NSR.county: "Okres",
+        NSR.fieldOfCare: "Obor péče"
+    }
+    for uri, label in concepts.items():
+        graph.add((uri, RDF.type, SKOS.ConceptScheme))
+        graph.add((uri, RDFS.label, Literal(label, lang="cs")))
+        graph.add((uri, SKOS.prefLabel, Literal(label, lang="cs")))
+
+
+def resource_classes(graph: Graph):
+    resource_dict = {
+        NSR.County: "Okres",
+        NSR.Region: "Kraj",
+        NSR.FieldOfCare: "Obor péče"
+    }
+
+    for resource, label in resource_dict.items():
+        graph.add((resource, RDF.type, RDFS.Class))
+        graph.add((resource, RDF.type, OWL.Class))
+        graph.add((resource, RDFS.label, Literal(label, lang="cs")))
+        graph.add((resource, SKOS.prefLabel, Literal(label, lang="cs")))
+
+
+def resources(graph: Graph, data: pd.DataFrame):
+    def uri_for(uri_str: str) -> URIRef:
+        return URIRef(uri_str)
+
+    def add_place(place_type: str, code_col: str, name_col: str, scheme: URIRef):
+        places = data.drop_duplicates(code_col)[[code_col, name_col]].dropna(subset=[code_col])
+        for _, place in places.iterrows():
+            uri = NSR[f"{place_type}/{place[code_col]}"]
+            graph.add((uri, RDF.type, SKOS.Concept))
+            graph.add((uri, RDF.type, SDMX_CODE.Area))
+            graph.add((uri, RDF.type, getattr(NSR, place_type)))
+            graph.add((uri, RDFS.label, Literal(place[name_col], lang="cs")))
+            graph.add((uri, SKOS.prefLabel, Literal(place[name_col], lang="cs")))
+            graph.add((uri, SKOS.inScheme, uri_for(scheme)))
+            graph.add((uri, SKOS.inScheme, SDMX_CODE.area))
+
+    add_place("county", "OkresCode", "Okres", NSR.county)
+    add_place("region", "KrajCode", "Kraj", NSR.region)
+
+    fields_of_care = data["OborPece"].unique()
+    foc_index = pd.Index(fields_of_care)
+    data["OborPeceCode"] = data["OborPece"].apply(lambda x: foc_index.get_loc(x))
+    for index, field_of_care in enumerate(fields_of_care):
+        uri = NSR[f"fieldOfCare/{index}"]
+        graph.add((uri, RDF.type, SKOS.Concept))
+        graph.add((uri, RDF.type, NSR.FieldOfCare))
+        graph.add((uri, RDFS.label, Literal(field_of_care, lang="cs")))
+        graph.add((uri, SKOS.prefLabel, Literal(field_of_care, lang="cs")))
+        graph.add((uri, SKOS.inScheme, NSR.fieldOfCare))
+
+
+def dimensions(graph: Graph):
+    dimensions_ = []
+
+    for dim in [
+        ("county", "Okres", NSR.County, SDMX_CONCEPT.refArea, NSR.county),
+        ("region", "Kraj", NSR.Region, SDMX_CONCEPT.refArea, NSR.region),
+        ("fieldOfCare", "Obor péče", NSR.FieldOfCare, None, NSR.fieldOfCare),
+    ]:
+        prop_uri = NS[dim[0]]
+        graph.add((prop_uri, RDF.type, RDFS.Property))
+        graph.add((prop_uri, RDF.type, QB.DimensionProperty))
+        graph.add((prop_uri, RDF.type, QB.CodedProperty))
+        graph.add((prop_uri, RDFS.label, Literal(dim[1], lang="cs")))
+        graph.add((prop_uri, RDFS.range, dim[2]))
+        graph.add((prop_uri, QB.codeList, dim[4]))
+        if dim[3]:
+            graph.add((prop_uri, QB.concept, dim[3]))
+
+        dimensions_.append(prop_uri)
+
+    return dimensions_
+
+
+def measure(graph: Graph):
+    measure_prop = NS.numberOfCareProviders
+    graph.add((measure_prop, RDF.type, RDFS.Property))
+    graph.add((measure_prop, RDF.type, QB.MeasureProperty))
+    graph.add((measure_prop, RDFS.label, Literal("Počet poskytovatelů péče", lang="cs")))
+    graph.add((measure_prop, RDFS.range, XSD.integer))
+    graph.add((measure_prop, RDFS.subPropertyOf, SDMX_MEASURE.obsValue))
+
+    return [measure_prop]
+
+
+def structure(graph: Graph, dimensions, measures):
+    dsd = NS.dataStructureDefinition
+    graph.add((dsd, RDF.type, QB.DataStructureDefinition))
+
+    for dimension in dimensions:
+        component = BNode()
+        graph.add((dsd, QB.component, component))
+        graph.add((component, QB.dimension, dimension))
+
+    for measure in measures:
+        component = BNode()
+        graph.add((dsd, QB.component, component))
+        graph.add((component, QB.measure, measure))
+
+    return dsd
+
+
+def dataset(graph: Graph, structure):
+    dataset = NSR.CareProviders
+    graph.add((dataset, RDF.type, QB.DataSet))
+    graph.add((dataset, RDFS.label, Literal("Poskytovatelé zdravotních služeb", lang="cs")))
+    graph.add((dataset, RDFS.label, Literal("Care Providers", lang="en")))
+    graph.add((dataset, DCTERMS.issued, Literal("2023-03-11", datatype=XSD.date)))
+    graph.add((dataset, DCTERMS.modified, Literal("2023-03-29", datatype=XSD.date)))
+    graph.add((dataset, DCTERMS.title, Literal("Poskytovatelé zdravotních služeb", lang="cs")))
+    graph.add((dataset, DCTERMS.title, Literal("Care Providers", lang="en")))
+    graph.add((dataset, DCTERMS.publisher, Literal("Hai Hung Nguyen")))
+    graph.add((dataset, DCTERMS.license,
+               Literal("https://github.com/tomikng/Datove-Inzenyrstvi/blob/main/hw1/LICENSE", datatype=XSD.anyURI)))
+    graph.add((dataset, QB.structure, structure))
+
+    return dataset
+
+
+def observations(graph: Graph, dataset, data: pd.DataFrame):
+    grouped = data.groupby(["OkresCode", "KrajCode", "OborPeceCode"]).size().reset_index(name="PocetPoskytovaluPece")
+    for index, row in grouped.iterrows():
+        resource = NSR[f"observation-{index:04d}"]
+        graph.add((resource, RDF.type, QB.Observation))
+        graph.add((resource, QB.dataSet, dataset))
+        graph.add((resource, NS.county, NSR[f"county/{row['OkresCode']}"]))
+        graph.add((resource, NS.region, NSR[f"region/{row['KrajCode']}"]))
+        graph.add((resource, NS.fieldOfCare, NSR[f"fieldOfCare/{row['OborPeceCode']}"]))
+        graph.add((resource, NS.numberOfCareProviders, Literal(row["PocetPoskytovaluPece"], datatype=XSD.integer)))
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Process data and convert it to RDF.")
+    parser.add_argument("--input-file", "-i", required=True,
+                        help="path to the input file")
+    return parser.parse_args()
+
+
+def main():
+    args = parse_arguments()
+
+    file_path = os.path.abspath(args.input_file)
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"The input file '{file_path}' does not exist.")
+
+    try:
+        data = load_csv_file_as_object(file_path)
+        rdf = as_rdf(data)
+        print_rdf_as_trig(rdf)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
