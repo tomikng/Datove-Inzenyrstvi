@@ -12,8 +12,15 @@ def consumer_operator(consumer, **kwargs):
     output = kwargs['dag_run'].conf.get("output_path", "N/A")
     consumer(output)
 
-def get_dataset(url, filename: str):
-    urllib.request.urlretrieve(url, filename)
+
+def get_dataset(url):
+    with urllib.request.urlopen(url) as response:
+        if response.status != 200:
+            raise ValueError(f"Failed to download dataset from {url}. Status code: {response.status}")
+        with open(url.split('/')[-1], 'wb') as f:
+            f.write(response.read())
+
+    print(f"Downloaded dataset: {url.split('/')[-1]}")
 
 
 default_args = {
@@ -32,10 +39,9 @@ with DAG(
     task01 = PythonOperator(
         task_id="donwload_dataset_careprovider",
         python_callable=get_dataset,
-        op_kwargs={
-            "url": "https://opendata.mzcr.cz/data/nrpzs/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv",
-            "filename": "./narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv"
-        }
+        op_args=[
+            "https://opendata.mzcr.cz/data/nrpzs/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv",
+        ]
     )
 
     task02 = PythonOperator(
@@ -47,10 +53,10 @@ with DAG(
     task03 = PythonOperator(
         task_id="download_dataset_population",
         python_callable=get_dataset,
-        op_kwargs={
-            'url': "https://www.czso.cz/documents/10180/165603907/13007221n01.pdf/c09364f1-11ab-46eb-94d0-686d3857cede?version=1.2",
-            "filename": "./populace-okresy-2021.xlsx"
-        }
+        op_args=[
+            "https://www.czso.cz/documents/10180/165603907/1300722201.xlsx/e582ff04-9226-4cc1-bb1c-c6479fe2e634?version=1.1",
+
+        ]
     )
 
     task04 = PythonOperator(

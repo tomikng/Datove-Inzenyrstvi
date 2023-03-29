@@ -224,7 +224,7 @@ def observations(graph: Graph, dataset, data: pd.DataFrame):
 
 
 def data_cb_population(output_path="/opt/airflow/dags"):
-    file_path = "./populace-okresy-2021.xlsx"
+    file_path = "./e582ff04-9226-4cc1-bb1c-c6479fe2e634?version=1.1"
     try:
         df = load_xlsx_as_df(file_path)
         data = parse_data(df)
