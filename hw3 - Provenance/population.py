@@ -10,7 +10,7 @@ dataset = URIRef(
     'https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2')
 creator = URIRef('https://github.com/tomikng')
 org = URIRef('https://mff.cuni.cz')
-ministry_of_health = URIRef('https://www.czso.cz')
+czso = URIRef('https://www.czso.cz')
 
 
 def add_entitities(result):
@@ -23,7 +23,7 @@ def add_entitities(result):
     result.add((data_cube, PROV.wasAttributedTo, creator))
 
     result.add((dataset, RDF.type, PROV.Entity))
-    result.add((dataset, PROV.wasAttributedTo, NSP.CZSO))
+    result.add((dataset, PROV.wasAttributedTo, czso))
     result.add((dataset, RDFS.label, Literal("Population Dataset", lang='en')))
 
 

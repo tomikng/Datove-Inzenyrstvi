@@ -23,7 +23,7 @@ def add_entitities(result):
     result.add((data_cube, PROV.wasAttributedTo, creator))
 
     result.add((dataset, RDF.type, PROV.Entity))
-    result.add((dataset, PROV.wasAttributedTo, NSP.MinistryOfHealthCR))
+    result.add((dataset, PROV.wasAttributedTo, ministry_of_health))
     result.add((dataset, RDFS.label, Literal("Care Providers Dataset", lang='en')))
 
 
