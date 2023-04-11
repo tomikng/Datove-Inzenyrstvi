@@ -80,7 +80,7 @@ def create_prov_document(output_path: str):
 def get_args():
     parser = argparse.ArgumentParser(description='Create care providers data cube provenance')
 
-    parser.add_argument('-o', '--out', dest='out', default=sys.stdout.buffer, type=argparse.FileType('wb'),
+    parser.add_argument('-o', '--out', dest='out', type=argparse.FileType('wb'),
                         help='Specify the file path to write the provenance.')
 
     args = parser.parse_args()
