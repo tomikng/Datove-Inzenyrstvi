@@ -37,9 +37,9 @@ def add_agents(result):
     result.add((org, RDF.type, PROV.Organization))
     result.add((org, FOAF.name, Literal("MFF UK")))
 
-    result.add((ministry_of_health, RDF.type, PROV.Agent))
-    result.add((ministry_of_health, RDF.type, PROV.Organization))
-    result.add((ministry_of_health, FOAF.name, Literal("Czech statistical bureau", lang='en')))
+    result.add((czso, RDF.type, PROV.Agent))
+    result.add((czso, RDF.type, PROV.Organization))
+    result.add((czso, FOAF.name, Literal("Czech statistical bureau", lang='en')))
 
 
 def add_activities(result):
