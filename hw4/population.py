@@ -173,9 +173,13 @@ def resources(graph: Graph, data: pd.DataFrame):
             graph.add((uri, SKOS.inScheme, uri_for(scheme)))
             graph.add((uri, SKOS.inScheme, SDMX_CODE.area))
 
+            if place_type == "county":
+                region_uri = NSR[f"region/{place['Kraj_code']}"]
+                graph.add((uri, SKOS.broader, region_uri))
+                graph.add((region_uri, SKOS.narrower, uri))
+
     add_place("county", "Region_Code", "Region", NSR.county)
     add_place("region", "Kraj_code", "District", NSR.region)
-
 
 def dimensions(graph: Graph):
     dimensions_ = []

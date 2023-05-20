@@ -27,7 +27,6 @@ def as_rdf(content):
     concept_schema(result)
     resource_classes(result)
     resources(result, content)
-    result = create_hierarchy(result)
     dimension = dimensions(result)
     measures = measure(result)
     structures = structure(result, dimension, measures)
@@ -89,6 +88,13 @@ def resources(graph: Graph, data: pd.DataFrame):
     add_place("county", "OkresCode", "Okres", NSR.county)
     add_place("region", "KrajCode", "Kraj", NSR.region)
 
+    # skos:broader / skos:narrower
+    for _, row in data.iterrows():
+        county_uri = NSR[f"county/{row['OkresCode']}"]
+        region_uri = NSR[f"region/{row['KrajCode']}"]
+        graph.add((county_uri, SKOS.broader, region_uri))
+        graph.add((region_uri, SKOS.narrower, county_uri))
+
     fields_of_care = data["OborPece"].unique()
     foc_index = pd.Index(fields_of_care)
     data["OborPeceCode"] = data["OborPece"].apply(lambda x: foc_index.get_loc(x))
@@ -99,6 +105,7 @@ def resources(graph: Graph, data: pd.DataFrame):
         graph.add((uri, RDFS.label, Literal(field_of_care, lang="cs")))
         graph.add((uri, SKOS.prefLabel, Literal(field_of_care, lang="cs")))
         graph.add((uri, SKOS.inScheme, NSR.fieldOfCare))
+
 
 
 def dimensions(graph: Graph):
@@ -186,30 +193,6 @@ def parse_arguments():
     parser.add_argument("--input-file", "-i", required=True,
                         help="path to the input file")
     return parser.parse_args()
-
-
-def create_hierarchy(graph: Graph) -> Graph:
-    region = NSR.Region
-    county = NSR.County
-
-    eurovoc_regauth = URIRef("http://eurovoc.europa.eu/6034")
-
-    graph.add((eurovoc_regauth, RDF.type, SKOS.ConceptScheme))
-    graph.add((eurovoc_regauth, SKOS.prefLabel, Literal("správní celek", lang="cs")))
-    graph.add((eurovoc_regauth, SKOS.prefLabel, Literal("regional and local authorities", lang="en")))
-    graph.add((eurovoc_regauth, SKOS.notation, Literal("6034")))
-
-    graph.add((region, RDF.type, SKOS.ConceptScheme))
-    graph.add((region, SKOS.inScheme, eurovoc_regauth))
-    graph.add((region, SKOS.prefLabel, Literal("Kraj", lang="cs")))
-    graph.add((region, SKOS.prefLabel, Literal("Region", lang="en")))
-
-    graph.add((county, RDF.type, SKOS.ConceptScheme))
-    graph.add((county, SKOS.inScheme, eurovoc_regauth))
-    graph.add((county, SKOS.prefLabel, Literal("Okres", lang="cs")))
-    graph.add((county, SKOS.prefLabel, Literal("County", lang="en")))
-
-    return graph
 
 
 def main():
