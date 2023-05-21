@@ -33,9 +33,9 @@ def as_rdf(content):
 def print_rdf_as_trig(graph: Graph):
     if not os.path.exists("out"):
         os.makedirs("out")
-    with open("out/hierarchy.ttl", "w", encoding="utf-8") as f:
+    with open("../docs/hierarchy.ttl", "w", encoding="utf-8") as f:
         f.write(graph.serialize(format="turtle"))
-        print("Success, the file is in out/hierarchy.ttl")
+        print("Success, the file is generated")
 
 
 

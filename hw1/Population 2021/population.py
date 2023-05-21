@@ -110,9 +110,9 @@ def get_kraj_codes(df: pd.DataFrame, kraj: str):
 def print_rdf_as_trig(graph: Graph):
     if not os.path.exists("out"):
         os.makedirs("out")
-    with open("out/population.ttl", "w", encoding="utf-8") as f:
+    with open("../../docs/population.ttl", "w", encoding="utf-8") as f:
         f.write(graph.serialize(format="turtle"))
-        print("Success, the file is in out/population.ttl")
+        print("Success, the file is generated")
 
 
 def as_rdf(content):

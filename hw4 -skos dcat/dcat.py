@@ -2,23 +2,24 @@ import datetime
 import os
 
 from rdflib import BNode, Graph, Literal, Namespace, URIRef
-from rdflib.namespace import DCAT, DCTERMS, RDF, XSD, FOAF, SPDX
+from rdflib.namespace import DCAT, DCTERMS, RDF, XSD, FOAF
 
 NS = Namespace("https://https://example.com/")
 NSR = Namespace("https://https://example.com//resources/")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+SPDX = Namespace("http://spdx.org/rdf/terms#")
 
 
 def build_dataset(gr: Graph) -> Graph:
     data_uri = NSR.MeanPopulation2021
 
     gr.add((data_uri, RDF.type, DCAT.Dataset))
-    gr.add((data_uri, DCTERMS.title, Literal("Population 2021", lang="en")))
-    gr.add((data_uri, DCTERMS.title, Literal("Obyvatelé v okresech 2021", lang="cs")))
+    gr.add((data_uri, DCTERMS.title, Literal("Care Providers 2021", lang="en")))
+    gr.add((data_uri, DCTERMS.title, Literal("Pokytovatele zdravotnich sluzeb 2021", lang="cs")))
     gr.add((data_uri, DCTERMS.description,
-            Literal("Datová kostka obsahující obyvatele podle krajů a okresů v roce 2021", lang="cs")))
+            Literal("Datová kostka obsahující Pokytovatele zdravotnich sluzeb podle krajů a okresů v roce 2021", lang="cs")))
 
-    for keyword in ["populace", "okresy", "kraje"]:
+    for keyword in ["zdravotnich", "okresy", "kraje"]:
         gr.add((data_uri, DCAT.keyword, Literal(keyword, lang="cs")))
 
     for theme in ["http://eurovoc.europa.eu/4259", "http://eurovoc.europa.eu/3300"]:
@@ -34,6 +35,13 @@ def build_dataset(gr: Graph) -> Graph:
 
     dist_node = NSR.CubeDistribution
     gr.add((data_uri, DCAT.distribution, dist_node))
+
+    checksum_node = BNode()
+    gr.add((dist_node, SPDX.checksum, checksum_node))
+    gr.add((checksum_node, RDF.type, SPDX.Checksum))
+    gr.add((checksum_node, SPDX.algorithm, SPDX.checksumAlgorithm_sha1))
+    gr.add((checksum_node, SPDX.checksumValue,
+            Literal("a1f41cc3e04ae31a9ed265f014fb9d723d4f97bd", datatype=XSD.hexBinary)))
 
     gr.add((dist_node, RDF.type, DCAT.Distribution))
     gr.add((dist_node, DCAT.accessURL, URIRef("https://github.com/tomikng/Datove-Inzenyrstvi")))
@@ -61,7 +69,7 @@ def main():
 
     if not os.path.exists("out"):
         os.makedirs("out")
-    with open("out/dcat_dataset.ttl", "wb") as file:
+    with open("../docs/dcat_dataset.ttl", "wb") as file:
         graph.serialize(file, "ttl")
         print(f"Success, created {file.name}")
 
