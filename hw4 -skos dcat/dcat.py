@@ -2,7 +2,7 @@ import datetime
 import os
 
 from rdflib import BNode, Graph, Literal, Namespace, URIRef
-from rdflib.namespace import DCAT, DCTERMS, RDF, XSD, FOAF
+from rdflib.namespace import DCAT, DCTERMS, RDF, XSD, FOAF, SPDX
 
 NS = Namespace("https://https://example.com/")
 NSR = Namespace("https://https://example.com//resources/")

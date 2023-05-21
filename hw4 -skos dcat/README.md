@@ -8,8 +8,9 @@ pip install -r requirements.txt
 ```
 
 ## Description
-The usage of `care_providers.py` and `population.py` is same as in the Homework 1. 
-The difference between files of Homework 1 and Homework 4 is new function `create_hierarchy()`,
-which will create SKOS hierarchy corresponding to the dataset.
+The usage of `hierarchy.py`
+```commandline
+python hierarchy.py -i path/to/dataset/file
+```
 
 For `dcat.py`, it will generate DCAT dataset for population datacube. 
