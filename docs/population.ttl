@@ -1,0 +1,552 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.com/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdmx: <http://purl.org/linked-data/sdmx#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx_concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:dataset-population a qb:DataSet ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    dct:license <https://data.gov.cz/podm%C3%ADnky-u%C5%BEit%C3%AD/voln%C3%BD-p%C5%99%C3%ADstup/> ;
+    dct:modified "2021-01-01"^^xsd:date ;
+    dct:publisher <https://www.czso.cz/csu/czso/> ;
+    qb:structure ex:structure ;
+    skos:prefLabel "Průměrný věk obyvatelstva České republiky v roce 2021"@cs .
+
+ex:observation-000 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Benešov" ;
+    ex:PrumernyVek 4.271044e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-001 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Beroun" ;
+    ex:PrumernyVek 4.140024e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-002 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Kladno" ;
+    ex:PrumernyVek 4.222431e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-003 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Kolín" ;
+    ex:PrumernyVek 4.196226e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-004 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Kutná Hora" ;
+    ex:PrumernyVek 4.339479e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-005 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Mělník" ;
+    ex:PrumernyVek 4.167901e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-006 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Mladá Boleslav" ;
+    ex:PrumernyVek 4.188863e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-007 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Nymburk" ;
+    ex:PrumernyVek 4.154903e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-008 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Praha-východ" ;
+    ex:PrumernyVek 3.883892e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-009 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Praha-západ" ;
+    ex:PrumernyVek 3.92721e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-010 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Příbram" ;
+    ex:PrumernyVek 4.315739e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-011 a qb:Observation ;
+    ex:Kraj "Středočeský kraj" ;
+    ex:Okres "Rakovník" ;
+    ex:PrumernyVek 4.327228e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-012 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "České Budějovice" ;
+    ex:PrumernyVek 4.231182e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-013 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "Český Krumlov" ;
+    ex:PrumernyVek 4.203854e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-014 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "Jindřichův Hradec" ;
+    ex:PrumernyVek 4.383157e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-015 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "Písek" ;
+    ex:PrumernyVek 4.397067e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-016 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "Prachatice" ;
+    ex:PrumernyVek 4.290187e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-017 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "Strakonice" ;
+    ex:PrumernyVek 4.345586e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-018 a qb:Observation ;
+    ex:Kraj "Jihočeský kraj" ;
+    ex:Okres "Tábor" ;
+    ex:PrumernyVek 4.366226e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-019 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Domažlice" ;
+    ex:PrumernyVek 4.287247e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-020 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Klatovy" ;
+    ex:PrumernyVek 4.409736e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-021 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Plzeň-město" ;
+    ex:PrumernyVek 4.336686e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-022 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Plzeň-jih" ;
+    ex:PrumernyVek 4.28424e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-023 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Plzeň-sever" ;
+    ex:PrumernyVek 4.218116e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-024 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Rokycany" ;
+    ex:PrumernyVek 4.320145e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-025 a qb:Observation ;
+    ex:Kraj "Plzeňský kraj" ;
+    ex:Okres "Tachov" ;
+    ex:PrumernyVek 4.213608e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-026 a qb:Observation ;
+    ex:Kraj "Karlovarský kraj" ;
+    ex:Okres "Cheb" ;
+    ex:PrumernyVek 4.32726e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-027 a qb:Observation ;
+    ex:Kraj "Karlovarský kraj" ;
+    ex:Okres "Karlovy Vary" ;
+    ex:PrumernyVek 4.417608e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-028 a qb:Observation ;
+    ex:Kraj "Karlovarský kraj" ;
+    ex:Okres "Sokolov" ;
+    ex:PrumernyVek 4.275718e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-029 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Děčín" ;
+    ex:PrumernyVek 4.29024e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-030 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Chomutov" ;
+    ex:PrumernyVek 4.215173e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-031 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Litoměřice" ;
+    ex:PrumernyVek 4.265615e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-032 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Louny" ;
+    ex:PrumernyVek 4.242597e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-033 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Most" ;
+    ex:PrumernyVek 4.267946e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-034 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Teplice" ;
+    ex:PrumernyVek 4.265414e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-035 a qb:Observation ;
+    ex:Kraj "Ústecký kraj" ;
+    ex:Okres "Ústí nad Labem" ;
+    ex:PrumernyVek 4.238957e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-036 a qb:Observation ;
+    ex:Kraj "Liberecký kraj" ;
+    ex:Okres "Česká Lípa" ;
+    ex:PrumernyVek 4.22462e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-037 a qb:Observation ;
+    ex:Kraj "Liberecký kraj" ;
+    ex:Okres "Jablonec nad Nisou" ;
+    ex:PrumernyVek 4.301247e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-038 a qb:Observation ;
+    ex:Kraj "Liberecký kraj" ;
+    ex:Okres "Liberec" ;
+    ex:PrumernyVek 4.221444e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-039 a qb:Observation ;
+    ex:Kraj "Liberecký kraj" ;
+    ex:Okres "Semily" ;
+    ex:PrumernyVek 4.361339e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-040 a qb:Observation ;
+    ex:Kraj "Královéhradecký kraj" ;
+    ex:Okres "Hradec Králové" ;
+    ex:PrumernyVek 4.359217e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-041 a qb:Observation ;
+    ex:Kraj "Královéhradecký kraj" ;
+    ex:Okres "Jičín" ;
+    ex:PrumernyVek 4.342446e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-042 a qb:Observation ;
+    ex:Kraj "Královéhradecký kraj" ;
+    ex:Okres "Náchod" ;
+    ex:PrumernyVek 4.370312e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-043 a qb:Observation ;
+    ex:Kraj "Královéhradecký kraj" ;
+    ex:Okres "Rychnov nad Kněžnou" ;
+    ex:PrumernyVek 4.29467e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-044 a qb:Observation ;
+    ex:Kraj "Královéhradecký kraj" ;
+    ex:Okres "Trutnov" ;
+    ex:PrumernyVek 4.369655e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-045 a qb:Observation ;
+    ex:Kraj "Pardubický kraj" ;
+    ex:Okres "Chrudim" ;
+    ex:PrumernyVek 4.300048e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-046 a qb:Observation ;
+    ex:Kraj "Pardubický kraj" ;
+    ex:Okres "Pardubice" ;
+    ex:PrumernyVek 4.277497e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-047 a qb:Observation ;
+    ex:Kraj "Pardubický kraj" ;
+    ex:Okres "Svitavy" ;
+    ex:PrumernyVek 4.280986e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-048 a qb:Observation ;
+    ex:Kraj "Pardubický kraj" ;
+    ex:Okres "Ústí nad Orlicí" ;
+    ex:PrumernyVek 4.268099e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-049 a qb:Observation ;
+    ex:Kraj "Kraj Vysočina" ;
+    ex:Okres "Havlíčkův Brod" ;
+    ex:PrumernyVek 4.334664e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-050 a qb:Observation ;
+    ex:Kraj "Kraj Vysočina" ;
+    ex:Okres "Jihlava" ;
+    ex:PrumernyVek 4.260997e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-051 a qb:Observation ;
+    ex:Kraj "Kraj Vysočina" ;
+    ex:Okres "Pelhřimov" ;
+    ex:PrumernyVek 4.390415e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-052 a qb:Observation ;
+    ex:Kraj "Kraj Vysočina" ;
+    ex:Okres "Třebíč" ;
+    ex:PrumernyVek 4.342051e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-053 a qb:Observation ;
+    ex:Kraj "Kraj Vysočina" ;
+    ex:Okres "Žďár nad Sázavou" ;
+    ex:PrumernyVek 4.263016e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-054 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Blansko" ;
+    ex:PrumernyVek 4.282339e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-055 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Brno-město" ;
+    ex:PrumernyVek 4.290507e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-056 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Brno-venkov" ;
+    ex:PrumernyVek 4.120666e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-057 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Břeclav" ;
+    ex:PrumernyVek 4.314949e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-058 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Hodonín" ;
+    ex:PrumernyVek 4.394945e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-059 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Vyškov" ;
+    ex:PrumernyVek 4.20783e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-060 a qb:Observation ;
+    ex:Kraj "Jihomoravský kraj" ;
+    ex:Okres "Znojmo" ;
+    ex:PrumernyVek 4.264908e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-061 a qb:Observation ;
+    ex:Kraj "Olomoucký kraj" ;
+    ex:Okres "Jeseník" ;
+    ex:PrumernyVek 4.429147e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-062 a qb:Observation ;
+    ex:Kraj "Olomoucký kraj" ;
+    ex:Okres "Olomouc" ;
+    ex:PrumernyVek 4.264625e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-063 a qb:Observation ;
+    ex:Kraj "Olomoucký kraj" ;
+    ex:Okres "Prostějov" ;
+    ex:PrumernyVek 4.318455e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-064 a qb:Observation ;
+    ex:Kraj "Olomoucký kraj" ;
+    ex:Okres "Přerov" ;
+    ex:PrumernyVek 4.381596e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-065 a qb:Observation ;
+    ex:Kraj "Olomoucký kraj" ;
+    ex:Okres "Šumperk" ;
+    ex:PrumernyVek 4.352264e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-066 a qb:Observation ;
+    ex:Kraj "Zlínský kraj" ;
+    ex:Okres "Kroměříž" ;
+    ex:PrumernyVek 4.366242e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-067 a qb:Observation ;
+    ex:Kraj "Zlínský kraj" ;
+    ex:Okres "Uherské Hradiště" ;
+    ex:PrumernyVek 4.371288e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-068 a qb:Observation ;
+    ex:Kraj "Zlínský kraj" ;
+    ex:Okres "Vsetín" ;
+    ex:PrumernyVek 4.322586e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-069 a qb:Observation ;
+    ex:Kraj "Zlínský kraj" ;
+    ex:Okres "Zlín" ;
+    ex:PrumernyVek 4.359947e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-070 a qb:Observation ;
+    ex:Kraj "Moravskoslezský kraj" ;
+    ex:Okres "Bruntál" ;
+    ex:PrumernyVek 4.374572e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-071 a qb:Observation ;
+    ex:Kraj "Moravskoslezský kraj" ;
+    ex:Okres "Frýdek-Místek" ;
+    ex:PrumernyVek 4.27128e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-072 a qb:Observation ;
+    ex:Kraj "Moravskoslezský kraj" ;
+    ex:Okres "Karviná" ;
+    ex:PrumernyVek 4.388864e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-073 a qb:Observation ;
+    ex:Kraj "Moravskoslezský kraj" ;
+    ex:Okres "Nový Jičín" ;
+    ex:PrumernyVek 4.248466e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-074 a qb:Observation ;
+    ex:Kraj "Moravskoslezský kraj" ;
+    ex:Okres "Opava" ;
+    ex:PrumernyVek 4.285918e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-075 a qb:Observation ;
+    ex:Kraj "Moravskoslezský kraj" ;
+    ex:Okres "Ostrava-město" ;
+    ex:PrumernyVek 4.33256e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:observation-076 a qb:Observation ;
+    ex:Kraj "Hlavní město Praha" ;
+    ex:Okres "Hlavní město Praha" ;
+    ex:PrumernyVek 4.235996e+01 ;
+    qb:dataSet qb:dataset-population .
+
+ex:Kraj a qb:DimensionProperty,
+        rdf:Property ;
+    rdfs:label "Kraj"@cs ;
+    qb:Concept sdmx_concept:Kraj ;
+    rdfs:range rdfs:Resource ;
+    rdfs:subPropertyOf sdmx-dimension:Kraj ;
+    skos:prefLabel "Kraj"@cs .
+
+ex:Okres a qb:DimensionProperty,
+        rdf:Property ;
+    rdfs:label "Okres"@cs ;
+    qb:Concept sdmx_concept:Okres ;
+    rdfs:range rdfs:Resource ;
+    rdfs:subPropertyOf sdmx-dimension:Okres ;
+    skos:prefLabel "Okres"@cs .
+
+ex:PrumernyVek a qb:DimensionProperty,
+        rdf:Property ;
+    rdfs:label "PrumernyVek"@cs ;
+    qb:Concept sdmx_concept:Prumer ;
+    rdfs:range rdfs:Resource ;
+    rdfs:subPropertyOf sdmx-measure:PrumernyVek ;
+    skos:prefLabel "PrumernyVek"@cs .
+
+ex:structure a qb:MeasureProperty ;
+    qb:component [ qb:dimension ex:Kraj,
+                ex:Okres ;
+            qb:measure ex:PrumernyVek ] .
+
+sdmx-dimension:Kraj a qb:DimensionProperty,
+        rdf:Property ;
+    rdfs:label "Kraj"@cs ;
+    qb:concept sdmx_concept:Kraj ;
+    rdfs:comment "Rozsáhlejší geografická oblast nebo skupina okresů"@cs ;
+    rdfs:range rdfs:Resource ;
+    skos:prefLabel "Kraj"@cs .
+
+sdmx-dimension:Okres a qb:DimensionProperty,
+        rdf:Property ;
+    rdfs:label "Okres"@cs ;
+    qb:concept sdmx_concept:Okres ;
+    rdfs:comment "Konkrétní administrativní členění"@cs ;
+    rdfs:range rdfs:Resource ;
+    skos:prefLabel "Okres"@cs .
+
+sdmx-measure:PrumernyVek a qb:MeasureProperty,
+        rdf:Property ;
+    rdfs:label "PrumernyVek"@cs ;
+    qb:Concept sdmx_concept:Prumer ;
+    rdfs:comment "Prumerny vek osob v danem regionu"@cs ;
+    skos:prefLabel "PrumernyVek"@cs .
+
+sdmx_concept:Kraj a sdmx:Concept,
+        skos:Concept ;
+    rdfs:label "Kraj"@cs ;
+    rdfs:comment "Geografická oblast nebo skupina okresů."@cs ;
+    skos:prefLabel "Kraj"@cs .
+
+sdmx_concept:Okres a sdmx:Concept,
+        skos:Concept ;
+    rdfs:label "Okres"@cs ;
+    rdfs:comment "Administrativní členění země nebo regionu."@cs ;
+    skos:prefLabel "Okres"@cs .
+
+sdmx_concept:Prumer a sdmx:Concept,
+        skos:Concept ;
+    rdfs:label "Prumer"@cs ;
+    rdfs:comment "Prumer nejakeho mnozstvi"@cs ;
+    skos:prefLabel "Prumer"@cs .
+

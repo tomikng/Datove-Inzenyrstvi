@@ -1,0 +1,39 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/provenance#CreateCareProvidersDataCube> a prov:Activity ;
+    prov:endedAtTime "2023-04-01T11:55:00"^^xsd:dateTime ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <https://opendata.mzcr.cz/data/nrpzs/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv> ;
+            prov:hadRole <https://example.com/resources/role> ] ;
+    prov:startedAtTime "2023-04-01T11:49:00"^^xsd:dateTime ;
+    prov:used <https://example.com/provenance#CareProvidersDataset> ;
+    prov:wasAssociatedWith <https://github.com/tomikng> .
+
+<https://example.com/resources/CareProviders> a prov:Entity ;
+    rdfs:label "Care providers data cube"@en ;
+    prov:wasAttributedTo <https://github.com/tomikng> ;
+    prov:wasDerivedFrom <https://opendata.mzcr.cz/data/nrpzs/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv> ;
+    prov:wasGeneratedBy <https://example.com/provenance#CareProvidersCubeScript> .
+
+<https://example.com/resources/role> a prov:Role .
+
+<https://mff.cuni.cz> a prov:Agent,
+        prov:Organization ;
+    foaf:name "MFF UK" .
+
+<https://www.mzcr.cz> a prov:Agent,
+        prov:Organization ;
+    foaf:name "Ministry of health"@en .
+
+<https://github.com/tomikng> a prov:Agent,
+        prov:Person ;
+    prov:actedOnBehalfOf <https://mff.cuni.cz> ;
+    foaf:name "Hai Hung Nguyen" .
+
+<https://opendata.mzcr.cz/data/nrpzs/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv> a prov:Entity ;
+    rdfs:label "Care Providers Dataset"@en ;
+    prov:wasAttributedTo <https://www.mzcr.cz> .
+

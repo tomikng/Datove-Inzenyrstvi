@@ -1,0 +1,39 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/provenance#CreatePopulationDataCube> a prov:Activity ;
+    prov:endedAtTime "2023-04-01T11:55:00"^^xsd:dateTime ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2> ;
+            prov:hadRole <https://example.com/resources/role> ] ;
+    prov:startedAtTime "2023-04-01T11:49:00"^^xsd:dateTime ;
+    prov:used <https://example.com/provenance#PopulationDataset> ;
+    prov:wasAssociatedWith <https://github.com/tomikng> .
+
+<https://example.com/resources/Population> a prov:Entity ;
+    rdfs:label "Population data cube"@en ;
+    prov:wasAttributedTo <https://github.com/tomikng> ;
+    prov:wasDerivedFrom <https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2> ;
+    prov:wasGeneratedBy <https://example.com/provenance#PopulationScript> .
+
+<https://example.com/resources/role> a prov:Role .
+
+<https://mff.cuni.cz> a prov:Agent,
+        prov:Organization ;
+    foaf:name "MFF UK" .
+
+<https://www.czso.cz> a prov:Agent,
+        prov:Organization ;
+    foaf:name "Czech statistical bureau"@en .
+
+<https://github.com/tomikng> a prov:Agent,
+        prov:Person ;
+    prov:actedOnBehalfOf <https://mff.cuni.cz> ;
+    foaf:name "Hai Hung Nguyen" .
+
+<https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2> a prov:Entity ;
+    rdfs:label "Population Dataset"@en ;
+    prov:wasAttributedTo <https://www.czso.cz> .
+

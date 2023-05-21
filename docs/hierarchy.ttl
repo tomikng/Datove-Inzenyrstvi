@@ -1,0 +1,891 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.com/resources/county/CZ0100> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Hlavní město Praha"@cs ;
+    skos:broader <https://example.com/resources/region/CZ010> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Hlavní město Praha"@cs .
+
+<https://example.com/resources/county/CZ0201> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Benešov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Benešov"@cs .
+
+<https://example.com/resources/county/CZ0202> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Beroun"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Beroun"@cs .
+
+<https://example.com/resources/county/CZ0203> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Kladno"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Kladno"@cs .
+
+<https://example.com/resources/county/CZ0204> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Kolín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Kolín"@cs .
+
+<https://example.com/resources/county/CZ0205> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Kutná Hora"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Kutná Hora"@cs .
+
+<https://example.com/resources/county/CZ0206> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Mělník"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Mělník"@cs .
+
+<https://example.com/resources/county/CZ0207> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Mladá Boleslav"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Mladá Boleslav"@cs .
+
+<https://example.com/resources/county/CZ0208> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Nymburk"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Nymburk"@cs .
+
+<https://example.com/resources/county/CZ0209> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Praha-východ"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Praha-východ"@cs .
+
+<https://example.com/resources/county/CZ020A> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Praha-západ"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Praha-západ"@cs .
+
+<https://example.com/resources/county/CZ020B> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Příbram"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Příbram"@cs .
+
+<https://example.com/resources/county/CZ020C> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Rakovník"@cs ;
+    skos:broader <https://example.com/resources/region/CZ020> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Rakovník"@cs .
+
+<https://example.com/resources/county/CZ0311> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "České Budějovice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "České Budějovice"@cs .
+
+<https://example.com/resources/county/CZ0312> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Český Krumlov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Český Krumlov"@cs .
+
+<https://example.com/resources/county/CZ0313> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Jindřichův Hradec"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Jindřichův Hradec"@cs .
+
+<https://example.com/resources/county/CZ0314> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Písek"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Písek"@cs .
+
+<https://example.com/resources/county/CZ0315> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Prachatice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Prachatice"@cs .
+
+<https://example.com/resources/county/CZ0316> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Strakonice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Strakonice"@cs .
+
+<https://example.com/resources/county/CZ0317> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Tábor"@cs ;
+    skos:broader <https://example.com/resources/region/CZ031> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Tábor"@cs .
+
+<https://example.com/resources/county/CZ0321> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Domažlice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Domažlice"@cs .
+
+<https://example.com/resources/county/CZ0322> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Klatovy"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Klatovy"@cs .
+
+<https://example.com/resources/county/CZ0323> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Plzeň-město"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Plzeň-město"@cs .
+
+<https://example.com/resources/county/CZ0324> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Plzeň-jih"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Plzeň-jih"@cs .
+
+<https://example.com/resources/county/CZ0325> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Plzeň-sever"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Plzeň-sever"@cs .
+
+<https://example.com/resources/county/CZ0326> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Rokycany"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Rokycany"@cs .
+
+<https://example.com/resources/county/CZ0327> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Tachov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ032> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Tachov"@cs .
+
+<https://example.com/resources/county/CZ0411> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Cheb"@cs ;
+    skos:broader <https://example.com/resources/region/CZ041> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Cheb"@cs .
+
+<https://example.com/resources/county/CZ0412> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Karlovy Vary"@cs ;
+    skos:broader <https://example.com/resources/region/CZ041> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Karlovy Vary"@cs .
+
+<https://example.com/resources/county/CZ0413> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Sokolov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ041> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Sokolov"@cs .
+
+<https://example.com/resources/county/CZ0421> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Děčín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Děčín"@cs .
+
+<https://example.com/resources/county/CZ0422> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Chomutov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Chomutov"@cs .
+
+<https://example.com/resources/county/CZ0423> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Litoměřice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Litoměřice"@cs .
+
+<https://example.com/resources/county/CZ0424> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Louny"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Louny"@cs .
+
+<https://example.com/resources/county/CZ0425> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Most"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Most"@cs .
+
+<https://example.com/resources/county/CZ0426> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Teplice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Teplice"@cs .
+
+<https://example.com/resources/county/CZ0427> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Ústí nad Labem"@cs ;
+    skos:broader <https://example.com/resources/region/CZ042> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Ústí nad Labem"@cs .
+
+<https://example.com/resources/county/CZ0511> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Česká Lípa"@cs ;
+    skos:broader <https://example.com/resources/region/CZ051> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Česká Lípa"@cs .
+
+<https://example.com/resources/county/CZ0512> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Jablonec nad Nisou"@cs ;
+    skos:broader <https://example.com/resources/region/CZ051> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Jablonec nad Nisou"@cs .
+
+<https://example.com/resources/county/CZ0513> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Liberec"@cs ;
+    skos:broader <https://example.com/resources/region/CZ051> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Liberec"@cs .
+
+<https://example.com/resources/county/CZ0514> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Semily"@cs ;
+    skos:broader <https://example.com/resources/region/CZ051> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Semily"@cs .
+
+<https://example.com/resources/county/CZ0521> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Hradec Králové"@cs ;
+    skos:broader <https://example.com/resources/region/CZ052> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Hradec Králové"@cs .
+
+<https://example.com/resources/county/CZ0522> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Jičín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ052> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Jičín"@cs .
+
+<https://example.com/resources/county/CZ0523> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Náchod"@cs ;
+    skos:broader <https://example.com/resources/region/CZ052> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Náchod"@cs .
+
+<https://example.com/resources/county/CZ0524> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Rychnov nad Kněžnou"@cs ;
+    skos:broader <https://example.com/resources/region/CZ052> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Rychnov nad Kněžnou"@cs .
+
+<https://example.com/resources/county/CZ0525> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Trutnov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ052> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Trutnov"@cs .
+
+<https://example.com/resources/county/CZ0531> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Chrudim"@cs ;
+    skos:broader <https://example.com/resources/region/CZ053> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Chrudim"@cs .
+
+<https://example.com/resources/county/CZ0532> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Pardubice"@cs ;
+    skos:broader <https://example.com/resources/region/CZ053> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Pardubice"@cs .
+
+<https://example.com/resources/county/CZ0533> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Svitavy"@cs ;
+    skos:broader <https://example.com/resources/region/CZ053> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Svitavy"@cs .
+
+<https://example.com/resources/county/CZ0534> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Ústí nad Orlicí"@cs ;
+    skos:broader <https://example.com/resources/region/CZ053> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Ústí nad Orlicí"@cs .
+
+<https://example.com/resources/county/CZ0631> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Havlíčkův Brod"@cs ;
+    skos:broader <https://example.com/resources/region/CZ063> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Havlíčkův Brod"@cs .
+
+<https://example.com/resources/county/CZ0632> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Jihlava"@cs ;
+    skos:broader <https://example.com/resources/region/CZ063> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Jihlava"@cs .
+
+<https://example.com/resources/county/CZ0633> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Pelhřimov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ063> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Pelhřimov"@cs .
+
+<https://example.com/resources/county/CZ0634> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Třebíč"@cs ;
+    skos:broader <https://example.com/resources/region/CZ063> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Třebíč"@cs .
+
+<https://example.com/resources/county/CZ0635> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Žďár nad Sázavou"@cs ;
+    skos:broader <https://example.com/resources/region/CZ063> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Žďár nad Sázavou"@cs .
+
+<https://example.com/resources/county/CZ0641> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Blansko"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Blansko"@cs .
+
+<https://example.com/resources/county/CZ0642> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Brno-město"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Brno-město"@cs .
+
+<https://example.com/resources/county/CZ0643> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Brno-venkov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Brno-venkov"@cs .
+
+<https://example.com/resources/county/CZ0644> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Břeclav"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Břeclav"@cs .
+
+<https://example.com/resources/county/CZ0645> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Hodonín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Hodonín"@cs .
+
+<https://example.com/resources/county/CZ0646> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Vyškov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Vyškov"@cs .
+
+<https://example.com/resources/county/CZ0647> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Znojmo"@cs ;
+    skos:broader <https://example.com/resources/region/CZ064> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Znojmo"@cs .
+
+<https://example.com/resources/county/CZ0711> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Jeseník"@cs ;
+    skos:broader <https://example.com/resources/region/CZ071> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Jeseník"@cs .
+
+<https://example.com/resources/county/CZ0712> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Olomouc"@cs ;
+    skos:broader <https://example.com/resources/region/CZ071> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Olomouc"@cs .
+
+<https://example.com/resources/county/CZ0713> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Prostějov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ071> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Prostějov"@cs .
+
+<https://example.com/resources/county/CZ0714> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Přerov"@cs ;
+    skos:broader <https://example.com/resources/region/CZ071> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Přerov"@cs .
+
+<https://example.com/resources/county/CZ0715> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Šumperk"@cs ;
+    skos:broader <https://example.com/resources/region/CZ071> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Šumperk"@cs .
+
+<https://example.com/resources/county/CZ0721> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Kroměříž"@cs ;
+    skos:broader <https://example.com/resources/region/CZ072> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Kroměříž"@cs .
+
+<https://example.com/resources/county/CZ0722> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Uherské Hradiště"@cs ;
+    skos:broader <https://example.com/resources/region/CZ072> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Uherské Hradiště"@cs .
+
+<https://example.com/resources/county/CZ0723> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Vsetín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ072> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Vsetín"@cs .
+
+<https://example.com/resources/county/CZ0724> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Zlín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ072> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Zlín"@cs .
+
+<https://example.com/resources/county/CZ0801> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Bruntál"@cs ;
+    skos:broader <https://example.com/resources/region/CZ080> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Bruntál"@cs .
+
+<https://example.com/resources/county/CZ0802> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Frýdek-Místek"@cs ;
+    skos:broader <https://example.com/resources/region/CZ080> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Frýdek-Místek"@cs .
+
+<https://example.com/resources/county/CZ0803> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Karviná"@cs ;
+    skos:broader <https://example.com/resources/region/CZ080> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Karviná"@cs .
+
+<https://example.com/resources/county/CZ0804> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Nový Jičín"@cs ;
+    skos:broader <https://example.com/resources/region/CZ080> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Nový Jičín"@cs .
+
+<https://example.com/resources/county/CZ0805> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Opava"@cs ;
+    skos:broader <https://example.com/resources/region/CZ080> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Opava"@cs .
+
+<https://example.com/resources/county/CZ0806> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/county> ;
+    rdfs:label "Ostrava-město"@cs ;
+    skos:broader <https://example.com/resources/region/CZ080> ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/county> ;
+    skos:prefLabel "Ostrava-město"@cs .
+
+<https://example.com/resources/region/nan> skos:narrower <https://example.com/resources/county/nan> .
+
+<https://example.com/resources/county/nan> skos:broader <https://example.com/resources/region/CZ010>,
+        <https://example.com/resources/region/nan> .
+
+<https://example.com/resources/region/CZ010> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Hlavní město Praha"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0100>,
+        <https://example.com/resources/county/nan> ;
+    skos:prefLabel "Hlavní město Praha"@cs .
+
+<https://example.com/resources/region/CZ041> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Karlovarský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0411>,
+        <https://example.com/resources/county/CZ0412>,
+        <https://example.com/resources/county/CZ0413> ;
+    skos:prefLabel "Karlovarský kraj"@cs .
+
+<https://example.com/resources/region/CZ051> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Liberecký kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0511>,
+        <https://example.com/resources/county/CZ0512>,
+        <https://example.com/resources/county/CZ0513>,
+        <https://example.com/resources/county/CZ0514> ;
+    skos:prefLabel "Liberecký kraj"@cs .
+
+<https://example.com/resources/region/CZ053> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Pardubický kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0531>,
+        <https://example.com/resources/county/CZ0532>,
+        <https://example.com/resources/county/CZ0533>,
+        <https://example.com/resources/county/CZ0534> ;
+    skos:prefLabel "Pardubický kraj"@cs .
+
+<https://example.com/resources/region/CZ072> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Zlínský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0721>,
+        <https://example.com/resources/county/CZ0722>,
+        <https://example.com/resources/county/CZ0723>,
+        <https://example.com/resources/county/CZ0724> ;
+    skos:prefLabel "Zlínský kraj"@cs .
+
+<https://example.com/resources/region/CZ052> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Královéhradecký kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0521>,
+        <https://example.com/resources/county/CZ0522>,
+        <https://example.com/resources/county/CZ0523>,
+        <https://example.com/resources/county/CZ0524>,
+        <https://example.com/resources/county/CZ0525> ;
+    skos:prefLabel "Královéhradecký kraj"@cs .
+
+<https://example.com/resources/region/CZ063> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Kraj Vysočina"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0631>,
+        <https://example.com/resources/county/CZ0632>,
+        <https://example.com/resources/county/CZ0633>,
+        <https://example.com/resources/county/CZ0634>,
+        <https://example.com/resources/county/CZ0635> ;
+    skos:prefLabel "Kraj Vysočina"@cs .
+
+<https://example.com/resources/region/CZ071> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Olomoucký kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0711>,
+        <https://example.com/resources/county/CZ0712>,
+        <https://example.com/resources/county/CZ0713>,
+        <https://example.com/resources/county/CZ0714>,
+        <https://example.com/resources/county/CZ0715> ;
+    skos:prefLabel "Olomoucký kraj"@cs .
+
+<https://example.com/resources/region/CZ080> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Moravskoslezský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0801>,
+        <https://example.com/resources/county/CZ0802>,
+        <https://example.com/resources/county/CZ0803>,
+        <https://example.com/resources/county/CZ0804>,
+        <https://example.com/resources/county/CZ0805>,
+        <https://example.com/resources/county/CZ0806> ;
+    skos:prefLabel "Moravskoslezský kraj"@cs .
+
+<https://example.com/resources/region/CZ031> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Jihočeský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0311>,
+        <https://example.com/resources/county/CZ0312>,
+        <https://example.com/resources/county/CZ0313>,
+        <https://example.com/resources/county/CZ0314>,
+        <https://example.com/resources/county/CZ0315>,
+        <https://example.com/resources/county/CZ0316>,
+        <https://example.com/resources/county/CZ0317> ;
+    skos:prefLabel "Jihočeský kraj"@cs .
+
+<https://example.com/resources/region/CZ032> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Plzeňský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0321>,
+        <https://example.com/resources/county/CZ0322>,
+        <https://example.com/resources/county/CZ0323>,
+        <https://example.com/resources/county/CZ0324>,
+        <https://example.com/resources/county/CZ0325>,
+        <https://example.com/resources/county/CZ0326>,
+        <https://example.com/resources/county/CZ0327> ;
+    skos:prefLabel "Plzeňský kraj"@cs .
+
+<https://example.com/resources/region/CZ042> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Ústecký kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0421>,
+        <https://example.com/resources/county/CZ0422>,
+        <https://example.com/resources/county/CZ0423>,
+        <https://example.com/resources/county/CZ0424>,
+        <https://example.com/resources/county/CZ0425>,
+        <https://example.com/resources/county/CZ0426>,
+        <https://example.com/resources/county/CZ0427> ;
+    skos:prefLabel "Ústecký kraj"@cs .
+
+<https://example.com/resources/region/CZ064> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Jihomoravský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0641>,
+        <https://example.com/resources/county/CZ0642>,
+        <https://example.com/resources/county/CZ0643>,
+        <https://example.com/resources/county/CZ0644>,
+        <https://example.com/resources/county/CZ0645>,
+        <https://example.com/resources/county/CZ0646>,
+        <https://example.com/resources/county/CZ0647> ;
+    skos:prefLabel "Jihomoravský kraj"@cs .
+
+<https://example.com/resources/region/CZ020> a <http://purl.org/linked-data/sdmx/2009/code#Area>,
+        skos:Concept,
+        <https://example.com/resources/region> ;
+    rdfs:label "Středočeský kraj"@cs ;
+    skos:inScheme <http://purl.org/linked-data/sdmx/2009/code#area>,
+        <https://example.com/resources/region> ;
+    skos:narrower <https://example.com/resources/county/CZ0201>,
+        <https://example.com/resources/county/CZ0202>,
+        <https://example.com/resources/county/CZ0203>,
+        <https://example.com/resources/county/CZ0204>,
+        <https://example.com/resources/county/CZ0205>,
+        <https://example.com/resources/county/CZ0206>,
+        <https://example.com/resources/county/CZ0207>,
+        <https://example.com/resources/county/CZ0208>,
+        <https://example.com/resources/county/CZ0209>,
+        <https://example.com/resources/county/CZ020A>,
+        <https://example.com/resources/county/CZ020B>,
+        <https://example.com/resources/county/CZ020C> ;
+    skos:prefLabel "Středočeský kraj"@cs .
+

@@ -1,0 +1,37 @@
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://www.w3.org/ns/dcat#> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://spdx.org/rdf/terms#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://https://example.com//resources/MeanPopulation2021> a ns2:Dataset ;
+    ns1:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/IRREG> ;
+    ns1:creator _:N0d41235bd7ae488b96da5750d01e47a9 ;
+    ns1:description "Datová kostka obsahující Pokytovatele zdravotnich sluzeb podle krajů a okresů v roce 2021"@cs ;
+    ns1:publisher _:N0d41235bd7ae488b96da5750d01e47a9 ;
+    ns1:spatial <http://publications.europa.eu/resource/authority/atu/CZE> ;
+    ns1:temporal [ a ns1:PeriodOfTime ;
+            ns2:endDate "2021-12-31"^^xsd:date ;
+            ns2:startDate "2021-01-01"^^xsd:date ] ;
+    ns1:title "Pokytovatele zdravotnich sluzeb 2021"@cs,
+        "Care Providers 2021"@en ;
+    ns2:distribution <https://https://example.com//resources/CubeDistribution> ;
+    ns2:keyword "kraje"@cs,
+        "okresy"@cs,
+        "zdravotnich"@cs ;
+    ns2:theme <http://eurovoc.europa.eu/3300>,
+        <http://eurovoc.europa.eu/4259> .
+
+<https://https://example.com//resources/CubeDistribution> a ns2:Distribution ;
+    ns1:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    ns4:checksum [ a ns4:Checksum ;
+            ns4:algorithm ns4:checksumAlgorithm_sha1 ;
+            ns4:checksumValue "a1f41cc3e04ae31a9ed265f014fb9d723d4f97bd"^^xsd:hexBinary ] ;
+    ns2:accessURL <https://github.com/tomikng/Datove-Inzenyrstvi> ;
+    ns2:downloadURL <https://github.com/tomikng/Datove-Inzenyrstvi> ;
+    ns2:mediaType <http://www.iana.org/assignments/media-types/text/turtle> .
+
+_:N0d41235bd7ae488b96da5750d01e47a9 a ns3:Person ;
+    ns3:firstName "Hai Hung" ;
+    ns3:lastName "Nguyen" .
+
