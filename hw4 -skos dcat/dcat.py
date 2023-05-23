@@ -41,7 +41,7 @@ def build_dataset(gr: Graph) -> Graph:
     gr.add((checksum_node, RDF.type, SPDX.Checksum))
     gr.add((checksum_node, SPDX.algorithm, SPDX.checksumAlgorithm_sha1))
     gr.add((checksum_node, SPDX.checksumValue,
-            Literal("a1f41cc3e04ae31a9ed265f014fb9d723d4f97bd", datatype=XSD.hexBinary)))
+            Literal("5e1ed41a8e2469b8d897e56b0ec272950027f01e", datatype=XSD.hexBinary)))
 
     gr.add((dist_node, RDF.type, DCAT.Distribution))
     gr.add((dist_node, DCAT.accessURL, URIRef("https://github.com/tomikng/Datove-Inzenyrstvi")))
